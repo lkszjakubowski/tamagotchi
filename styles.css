@@ -87,7 +87,9 @@ body {
 }
 
 .console--screen-main-image {
-  transform: scale(1.2);
+  height: 130px;
+  width: 152px;
+  background: url('./assets/sprites/idle-sprite.png') 0px 0px;
 }
 
 .console--screen-textfield {
