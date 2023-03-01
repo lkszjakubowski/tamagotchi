@@ -8,24 +8,16 @@ body {
   background: #6d93f8;
   overflow: hidden;
   height: 100vh;
-}
-
-.bar {
-  color: black;
-  padding: 16px;
-}
-
-.health {
-  padding: 16px;
+  font-family: 'VT323', monospace;
+  color: #724d50;
 }
 
 .console {
-  max-width: 420px;
+  max-width: 400px;
   background: #f8d26d;
   border-radius: 10px;
   margin: 0 auto;
-  height: 657px;
-  padding-top: 40px;
+  padding: 40px 0;
   margin-top: 20px;
 }
 
@@ -33,6 +25,7 @@ body {
   height: 477px;
   width: 97%;
   margin: auto;
+  padding: 22px 26px;
   background-color: #cdedfc;
   border: 10px solid #dfa46d;
   box-shadow: inset 0px 0px 0px 10px #e7f6fd;
@@ -54,7 +47,57 @@ body {
   cursor: pointer;
 }
 
+.console--buttons-button > img {
+  transform: scale(1.2);
+}
+
 .console--buttons-button:active {
   transform: scale(0.95);
   box-shadow: none;
+}
+
+.console--screen-stats {
+  display: flex;
+  justify-content: space-around;
+}
+
+.console--screen-stats-stat {
+  display: flex;
+  align-items: center;
+}
+
+.stat-text {
+  font-size: 40pt;
+  line-height: 40px;
+  letter-spacing: -0.15em;
+  padding-right: 0.15em;
+}
+
+.stat-image {
+  transform: scale(1.2);
+}
+
+.console--screen-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 7px solid #9fdcf9;
+  height: 275px;
+  margin-top: 16px;
+}
+
+.console--screen-main-image {
+  transform: scale(1.2);
+}
+
+.console--screen-textfield {
+  background-color: #e7f6fd;
+  text-align: center;
+  margin-top: 16px;
+  padding: 10px;
+}
+
+.console--screen-textfield-text {
+  font-size: 60pt;
+  line-height: 40px;
 }

@@ -3,11 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <title>Tamagotchi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
     <link href="./styles.css" rel="stylesheet" />
   </head>
   <body>
     <div class="console">
-      <div class="console--screen"></div>
+      <div class="console--screen">
+        <div class="console--screen-stats">
+          <div class="console--screen-stats-stat">
+            <img
+              src="./assets/health-icon.png"
+              class="stat-image"
+              alt=""
+              srcset=""
+            /><span class="stat-text">10</span>
+          </div>
+          <div class="console--screen-stats-stat">
+            <img
+              src="./assets/eat-icon.png"
+              class="stat-image"
+              alt=""
+              srcset=""
+            /><span class="stat-text">10</span>
+          </div>
+          <div class="console--screen-stats-stat">
+            <img
+              src="./assets/sleep-icon.png"
+              class="stat-image"
+              alt=""
+              srcset=""
+            /><span class="stat-text">10</span>
+          </div>
+          <div class="console--screen-stats-stat">
+            <img
+              src="./assets/play-icon.png"
+              class="stat-image"
+              alt=""
+              srcset=""
+            /><span class="stat-text">10</span>
+          </div>
+        </div>
+        <div class="console--screen-main">
+          <div class="console--screen-main-image">
+            <img src="./assets/nimo-standing.png" alt="" srcset="" />
+          </div>
+        </div>
+        <div class="console--screen-textfield">
+          <span class="console--screen-textfield-text">HAPPY</span>
+        </div>
+      </div>
       <div class="console--buttons">
         <button class="console--buttons-button">
           <img src="./assets/eat-icon.png" alt="" srcset="" />
