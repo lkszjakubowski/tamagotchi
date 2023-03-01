@@ -5,7 +5,7 @@
 }
 
 body {
-  background: #1c1c1c;
+  background: #6d93f8;
   overflow: hidden;
   height: 100vh;
 }
@@ -19,10 +19,42 @@ body {
   padding: 16px;
 }
 
-.gameBoy {
+.console {
   max-width: 420px;
   background: #f8d26d;
   border-radius: 10px;
   margin: 0 auto;
   height: 657px;
+  padding-top: 40px;
+  margin-top: 20px;
+}
+
+.console--screen {
+  height: 477px;
+  width: 97%;
+  margin: auto;
+  background-color: #cdedfc;
+  border: 10px solid #dfa46d;
+  box-shadow: inset 0px 0px 0px 10px #e7f6fd;
+}
+
+.console--buttons {
+  display: flex;
+  padding-top: 24px;
+  justify-content: space-around;
+}
+
+.console--buttons-button {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background: #f8d26d;
+  border: 5px solid #dfa46d;
+  box-shadow: 0px 7px 0px #724d50;
+  cursor: pointer;
+}
+
+.console--buttons-button:active {
+  transform: scale(0.95);
+  box-shadow: none;
 }
