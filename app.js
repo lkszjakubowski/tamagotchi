@@ -12,5 +12,4 @@ document.addEventListener('DOMContentLoaded', () => {
   startAnimation();
   const game = new Game();
   game.start(elementsObj);
-  game.decreaseStats(elementsObj);
 });
