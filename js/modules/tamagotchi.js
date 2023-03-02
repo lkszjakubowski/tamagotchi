@@ -32,6 +32,15 @@ export default class Tamagotchi {
     decreaseStat(this.hunger);
     displayStat(this.hunger, '.stat-text.hunger');
 
+    if (this.energy.value <= 0 || this.hunger.value <= 0) {
+      if (!this.healthDecreaseInterval) {
+        this.healthDecreaseInterval = decreaseInterval(
+          this.decreaseHealth,
+          1000
+        );
+      }
+    }
+
     if (this.hunger.value <= 0) {
       clearInterval(this.hungerDecreaseInterval);
     }
@@ -42,12 +51,17 @@ export default class Tamagotchi {
     decreaseStat(this.energy, decreaseValue);
     displayStat(this.energy, '.stat-text.energy');
 
-    if (this.energy.value <= 0) {
-      clearInterval(this.energyDecreaseInterval);
+    if (this.energy.value <= 0 || this.hunger.value <= 0) {
+      if (!this.healthDecreaseInterval) {
+        this.healthDecreaseInterval = decreaseInterval(
+          this.decreaseHealth,
+          1000
+        );
+      }
     }
 
-    if (this.energy.value <= 0 || this.hunger.value <= 0) {
-      this.healthDecreaseInterval = decreaseInterval(this.decreaseHealth, 1000);
+    if (this.energy.value <= 0) {
+      clearInterval(this.energyDecreaseInterval);
     }
   };
 
@@ -57,6 +71,7 @@ export default class Tamagotchi {
 
     if (this.health.value <= 0) {
       clearInterval(this.healthDecreaseInterval);
+      this.healthDecreaseInterval = null;
     }
   };
 
