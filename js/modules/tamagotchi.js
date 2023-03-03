@@ -39,9 +39,6 @@ export default class Tamagotchi {
           1000
         );
       }
-    }
-
-    if (this.hunger.value <= 0) {
       clearInterval(this.hungerDecreaseInterval);
     }
   };
@@ -58,9 +55,6 @@ export default class Tamagotchi {
           1000
         );
       }
-    }
-
-    if (this.energy.value <= 0) {
       clearInterval(this.energyDecreaseInterval);
     }
   };
