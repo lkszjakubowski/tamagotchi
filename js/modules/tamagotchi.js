@@ -1,18 +1,77 @@
+import {
+  decreaseInterval,
+  displayStat,
+  decreaseStat,
+} from '../utils/helpers.js';
+
 export default class Tamagotchi {
   constructor() {
-    this.health = { value: 10, importance: 1 };
+    this.fun = { value: 10, importance: 4 };
     this.hunger = { value: 10, importance: 3 };
     this.energy = { value: 10, importance: 2 };
-    this.fun = { value: 10, importance: 4 };
-    console.log("Tamagotchi initialized");
+    this.health = { value: 10, importance: 1 };
+
+    this.funDecreaseInterval = decreaseInterval(this.decreaseFun, 1000);
+    this.hungerDecreaseInterval = decreaseInterval(this.decreaseHunger, 1000);
+    this.energyDecreaseInterval = decreaseInterval(this.decreaseEnergy, 2000);
+    this.healthDecreaseInterval = null;
+
+    console.log('Tamagotchi initialized');
   }
 
-  displayHealth = (elementSelector) => {
-    const displayElement = document.querySelector(elementSelector);
-    displayElement.innerText = this.energy.value;
+  decreaseFun = () => {
+    decreaseStat(this.fun);
+    displayStat(this.fun, '.stat-text.fun');
+
+    if (this.fun.value <= 0) {
+      clearInterval(this.funDecreaseInterval);
+    }
+  };
+
+  decreaseHunger = () => {
+    decreaseStat(this.hunger);
+    displayStat(this.hunger, '.stat-text.hunger');
+
+    if (this.hunger.value <= 0) {
+      if (!this.healthDecreaseInterval) {
+        this.healthDecreaseInterval = decreaseInterval(
+          this.decreaseHealth,
+          1000
+        );
+      }
+      clearInterval(this.hungerDecreaseInterval);
+    }
+  };
+
+  decreaseEnergy = () => {
+    const decreaseValue = this.fun.value <= 0 ? 2 : 1;
+    decreaseStat(this.energy, decreaseValue);
+    displayStat(this.energy, '.stat-text.energy');
+
+    if (this.energy.value <= 0) {
+      if (!this.healthDecreaseInterval) {
+        this.healthDecreaseInterval = decreaseInterval(
+          this.decreaseHealth,
+          1000
+        );
+      }
+      clearInterval(this.energyDecreaseInterval);
+    }
+  };
+
+  decreaseHealth = () => {
+    decreaseStat(this.health);
+    displayStat(this.health, '.stat-text.health');
+
+    if (this.health.value <= 0) {
+      clearInterval(this.healthDecreaseInterval);
+    }
   };
 
   mount = ({ healthElement, hungerElement, energyElement, funElement }) => {
-    this.displayHealth(healthElement);
+    displayStat(this.health, healthElement);
+    displayStat(this.hunger, hungerElement);
+    displayStat(this.energy, energyElement);
+    displayStat(this.fun, funElement);
   };
 }
